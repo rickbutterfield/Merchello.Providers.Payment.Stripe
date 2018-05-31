@@ -11,7 +11,6 @@ using Merchello.Providers.Payment.Stripe.Controllers;
 using Umbraco.Core;
 using Umbraco.Core.Events;
 using Umbraco.Core.Logging;
-using Merchello.FastTrack.Ui;
 
 namespace Merchello.Providers.Payment.Stripe
 {
