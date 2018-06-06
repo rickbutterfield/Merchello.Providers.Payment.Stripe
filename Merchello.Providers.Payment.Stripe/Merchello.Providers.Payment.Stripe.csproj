@@ -317,6 +317,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\package.manifest" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -326,6 +327,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\payment.stripe.module.js" />
+    <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\payment.stripe.providersettings.controller.html" />
+    <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\payment.stripe.providersettings.controller.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

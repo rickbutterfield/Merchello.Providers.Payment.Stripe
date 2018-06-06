@@ -14,7 +14,7 @@ using Umbraco.Core.Logging;
 namespace Merchello.Providers.Payment.Stripe.Provider
 {
     [GatewayProviderActivation(Constants.Stripe.GatewayProviderKey, "Stripe Payment Provider", "Stripe Payment Provider")]
-    [GatewayProviderEditor("Stripe Configuration", "~/App_Plugins/Merchello.Plugins.Stripe/payment.stripe.providersettings.controller.html")]
+    [GatewayProviderEditor("Stripe Configuration", "~/App_Plugins/Merchello.Providers.Payment.Stripe/payment.stripe.providersettings.controller.html")]
     [ProviderSettingsMapper(Constants.Stripe.ExtendedDataKeys.ProviderSettings, typeof(StripeProviderSettings))]
     public class StripePaymentGatewayProvider : PaymentGatewayProviderBase, IStripePaymentGatewayProvider
     {

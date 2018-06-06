@@ -1,0 +1,44 @@
+﻿<div class="umb-panel merchello-side-panel" data-ng-controller="Merchello.Providers.Payment.Stripe.PaymentController">
+    <div class="umb-overlay umb-overlay-right">
+        <div class="umb-overlay__form">
+            <div class="umb-overlay-header">
+                <h4 class="umb-overlay__title">Stripe Payment Provider Configuration</h4>
+            </div>
+
+            <div class="umb-overlay-container form-horizontal merchello-panel-body">
+                <div class="form-group control-group">
+                    <label for="PublishableKey">Publishable Key</label>
+                    <input name="PublishableKey" class="form-control umb-editor" type="text" data-ng-model="providerSettings.PublishableKey" placeholder="Publishable Key" />
+                </div>
+                <div class="form-group control-group">
+                    <label for="SecretKey">Secret Key</label>
+                    <input name="SecretKey" class="form-control umb-editor" type="text" data-ng-model="providerSettings.SecretKey" placeholder="Secret Key" />
+                </div>
+                <div class="form-group control-group">
+                    <label for="SuccessRedirectUrl">Success Redirect Url</label>
+                    <input name="SuccessRedirectUrl" class="form-control umb-editor" type="text" data-ng-model="providerSettings.SuccessRedirectUrl" placeholder="/confirmation" />
+                </div>
+            </div>
+
+            <div class="umb-overlay-drawer">
+                <div class="umb-overlay-drawer__align-right">
+                    <div class="umb-button">
+                        <a href data-ng-click="close()" class="btn btn-link">
+                            <localize key="general_cancel">Cancel</localize>
+                        </a>
+                    </div>
+
+                    <div class="umb-button">
+                        <button class="btn btn-primary"
+                                data-ng-click="submit(dialogData)">
+                            <localize key="buttons_save"><localize key="buttons_save" /></localize>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>	
+</div>
