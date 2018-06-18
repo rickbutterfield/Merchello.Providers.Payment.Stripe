@@ -4,7 +4,9 @@
 
             var extendedDataKey = 'stripeProviderSettings';
             var settingsString = $scope.dialogData.provider.extendedData.getValue(extendedDataKey);
-            $scope.providerSettings = angular.fromJson(settingsString);
+            if (settingsString !== "") {
+                $scope.providerSettings = angular.fromJson(settingsString);
+            }
 
             // Watch with object equality to convert back to a string for the submit() call on the Save button
             $scope.$watch(function () {
