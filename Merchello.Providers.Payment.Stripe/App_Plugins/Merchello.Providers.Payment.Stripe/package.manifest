@@ -1,4 +1,4 @@
-﻿{
+﻿﻿{
     javascript: [
         "~/App_Plugins/Merchello.Providers.Payment.Stripe/payment.stripe.module.js",
         "~/App_Plugins/Merchello.Providers.Payment.Stripe/payment.stripe.providersettings.controller.js"
