@@ -318,7 +318,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\package.manifest" />
-    <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\Views\PaymentForm.cshtml" />
+    <Content Include="Views\StripePayment\PaymentForm.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
