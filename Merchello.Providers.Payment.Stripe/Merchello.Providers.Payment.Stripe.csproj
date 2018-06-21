@@ -318,6 +318,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\package.manifest" />
+    <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\Views\PaymentForm.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -330,6 +331,7 @@
     <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\payment.stripe.module.js" />
     <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\payment.stripe.providersettings.controller.html" />
     <Content Include="App_Plugins\Merchello.Providers.Payment.Stripe\payment.stripe.providersettings.controller.js" />
+    <Content Include="Scripts\payments.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

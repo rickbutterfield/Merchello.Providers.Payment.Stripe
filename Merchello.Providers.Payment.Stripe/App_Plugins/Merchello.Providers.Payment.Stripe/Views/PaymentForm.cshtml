@@ -1,0 +1,78 @@
+﻿@inherits Merchello.Web.Mvc.MerchelloViewPage<Merchello.Providers.Payment.Stripe.Models.StripePaymentModel>
+@using Umbraco.Core;
+@using Merchello.Web
+@using Merchello.Core
+@using Merchello.Core.Checkout
+@using System.Web.Mvc.Html
+@using Merchello.FastTrack.Ui
+@using Merchello.Web.Models.Ui
+@using Merchello.Providers.Payment.Stripe.Controllers
+
+@{
+    var customerContext = new CustomerContext(UmbracoContext);
+    var currentCustomer = customerContext.CurrentCustomer;
+    var basket = currentCustomer.Basket();
+    var checkout = basket.GetCheckoutManager();
+    var invoice = checkout.Payment.PrepareInvoice();
+
+    string totalCost;
+    decimal invoiceCost = invoice.Total;
+    totalCost = invoiceCost.ToString().Replace(".", "");
+
+    string lineItems = string.Empty;
+    foreach (var item in invoice.Items.Where(x => x.LineItemType != LineItemType.Tax))
+    {
+        lineItems += "{" + string.Format("amount: {0}, label: '{1}'", item.TotalPrice.ToString("C").Replace("£", "").Replace(".", ""), item.Name) + "},";
+    }
+
+    // TODO: Set your successful payment URL here
+    // The way I did it was to use Merchello FastTrack's `ExampleUiHelper`
+    //var receiptNode = ExampleUiHelper.Content.GetReceipt();
+    //Model.SuccessRedirectUrl = receiptNode.Url;
+}
+
+<!-- Stripe Elements -->
+<script>
+    var stripeElements = {
+        totalCost: @totalCost,
+        publishableKey: '@Model.PublishableKey',
+        lineItems: [@Html.Raw(lineItems)]
+    }
+</script>
+
+@using (Html.BeginUmbracoForm<StripePaymentController>("Process", new { area = "FastTrack" }, new { id = "payment-form" }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+
+    <div class="payment-request">
+        <div id="payment-request-button" class="u-margin">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <div class="o-hr">
+            <span class="o-hr__label">OR</span>
+        </div>
+    </div>
+
+    <div class="o-form-group">
+        @Html.LabelFor(x => x.Name, "Billing Name", new { @class = "o-label" })
+        @Html.TextBoxFor(x => x.Name, new { @class = "o-input", @readonly = true })
+    </div>
+
+    @Html.HiddenFor(x => x.Token)
+    @Html.HiddenFor(x => x.SuccessRedirectUrl)
+
+    <div id="payment-request-form">
+        <label for="card-element" class="o-label">
+            Credit or debit card
+        </label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <!-- Used to display Element errors. -->
+        <div id="card-errors" role="alert"></div>
+
+        <button type="submit" class="o-btn">Submit Payment</button>
+    </div>
+}
