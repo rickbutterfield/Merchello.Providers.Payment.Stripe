@@ -40,7 +40,7 @@
     }
 </script>
 
-@using (Html.BeginUmbracoForm<StripePaymentController>("Process", new { area = "FastTrack" }, new { id = "payment-form" }, FormMethod.Post))
+@using (Html.BeginUmbracoForm<StripePaymentController>("Process", new { area = "Merchello.Providers.Payment.Stripe" }, new { id = "payment-form" }, FormMethod.Post))
 {
     @Html.AntiForgeryToken();
 
